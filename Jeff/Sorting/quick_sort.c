@@ -2,4 +2,5 @@
 
 int main() {
     printf("hello world");
+    pritnf("testing");
 }
