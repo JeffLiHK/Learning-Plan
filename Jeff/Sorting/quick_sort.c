@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define list_size 20
 
-void loop_list(int list[], int size);
+void print_list(int list[], int size);
 void quick_sort(int list[], int size);
 void swap(int* a, int* b);
 
@@ -11,13 +11,13 @@ int main(){
         list[i] = ((((i+47)*79-31)/19)*747) % 17;
     }
     printf("Unsort:\t");
-    loop_list(list, list_size);
+    print_list(list, list_size);
     quick_sort(list, list_size);
     printf("Sort:\t");
-    loop_list(list, list_size);
+    print_list(list, list_size);
 }
 
-void loop_list(int list[], int size){
+void print_list(int list[], int size){
     for (int i = 0; i < size; i++)
     {
         printf("%d ", list[i]);
