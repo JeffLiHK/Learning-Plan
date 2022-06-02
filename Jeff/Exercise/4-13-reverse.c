@@ -16,5 +16,6 @@ void reverse(char* rev, char* str, int len, int i) {
         reverse(rev, str, len, i);
     } else {
         rev[i] = '\0';
+        return;
     }
 }
