@@ -6,7 +6,8 @@ int main() {
     char str[] = "hello world";
     char new[12];
     reverse(new, str, 11, 0);
-    printf("\n%s\n", new);
+    printf("\nOriginal String: %s\n", str);
+    printf("Reversed String: %s\n", new);
     return 0;
 }
 
