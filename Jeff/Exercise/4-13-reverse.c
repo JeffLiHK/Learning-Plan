@@ -16,7 +16,7 @@ void reverse(char* rev, char* str, int len, int i) {
     if (i < len) {
         reverse(rev, str, len, i);
     } else {
-        rev[i] = '\0';
+        rev[i] = '\0';      // string end with '\0'
         return;
     }
 }
