@@ -3,6 +3,8 @@
 #include "getch.h"
 #define SIZE 1000
 
+// not done
+
 int main() {
     int n, array[SIZE], getint(int *);
 
