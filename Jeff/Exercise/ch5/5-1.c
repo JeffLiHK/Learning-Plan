@@ -21,7 +21,6 @@ int getint (int *pn) {
     int c, sign;
     
     while (isspace(c = getch())) {
-        ;
     }
     if (!isdigit(c) && c != EOF & c != '+' && c != '-') {
         ungetch(c);

@@ -5,7 +5,10 @@ void test2();
 
 int main() {
     // test1();
-    test2();
+    // test2();
+    int a[] = {7,2,5};
+    int *pa = &a[1];
+    printf("0: %d, 1: %d, 2:%d", *(pa-1), *pa, *(pa+1));
     return 0;
 }
 
