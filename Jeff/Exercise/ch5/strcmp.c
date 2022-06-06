@@ -18,5 +18,4 @@ int strcmp_jeff (char *s, char *t) {
         t++;
     }
     return *s - *t;
-    
 }
