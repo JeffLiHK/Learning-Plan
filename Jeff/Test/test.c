@@ -8,8 +8,5 @@ int main() {
 }
 
 void test() {
-    char *cp;
-    char str = "abc";
-    cp = str;
-    printf("%c", *p);
+    printf("%c", 40);
 }

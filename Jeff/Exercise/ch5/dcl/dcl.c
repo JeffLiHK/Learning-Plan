@@ -4,7 +4,7 @@
 
 #define MAXTOKEN 100
 
-enum {NAME, PARENS, BRACKETS};
+enum { NAME, PARENS, BRACKETS };
 
 void dcl(void);
 void dirdcl(void);
@@ -18,12 +18,12 @@ char out[1000];     // output string
 
 int main() {    // convert declaration to words
     while (gettoken() != EOF) {     // 1st token on line
-        strcpy(datatype, token);    // is the datatype (need to verify)
+        strcpy(datatype, token);    // is the data type (need to verify)
         out[0] = '\0';
         dcl();  // parse rest of line
         if (tokentype != '\n')
             printf("syntax error\n");
-        printf("%s: %s %s\n", name ,out, datatype);
+        printf("%s: %s %s\n", name, out, datatype);
     }
     return 0;
 }
@@ -47,12 +47,14 @@ void dirdcl(void) {
         dcl();
         if (tokentype != ')')
             printf("error: missing )\n");
-    } else if (tokentype == NAME) {     // variable name
+    }
+    else if (tokentype == NAME) {     // variable name
         strcpy(name, token);
-    } else {
+    }
+    else {
         printf("error: not expected name or (dcl)\n");
     }
-    while ((type=gettoken()) == PARENS || type == BRACKETS) {
+    while ((type = gettoken()) == PARENS || type == BRACKETS) {
         if (type == PARENS)
             strcat(out, " function returning");
         else {
@@ -66,30 +68,34 @@ void dirdcl(void) {
 int gettoken(void) {
     int c, getch(void);
     void ungetch(int);
-    char *p = token;
+    char* p = token;
 
     while ((c = getch()) == ' ' || c == '\t')
         ;
     if (c == '(') {
-        if ((c = getch()) == ' ' || c == '\t') {
+        if ((c = getch()) == ')') {
             strcpy(token, "()");
             return tokentype = PARENS;
-        } else {
+        }
+        else {
             ungetch(c);
             return tokentype = '(';
         }
-    } else if (c == '[') {
+    }
+    else if (c == '[') {
         for (*p++ = c; (*p++ = getch()) != ']'; )
             ;
         *p = '\0';
         return tokentype = BRACKETS;
-    } else if (isalpha(c)) {
+    }
+    else if (isalpha(c)) {
         for (*p++ = c; isalnum(c = getch()); )
             *p++ = c;
         *p = '\0';
         ungetch(c);
         return tokentype = NAME;
-    } else
+    }
+    else
         return tokentype = c;
 }
 
@@ -104,7 +110,8 @@ int getch() {
 void ungetch(int ch) {
     if (bufp > BUFSIZE) {
         printf("ungetch: buffer has been full");
-    } else {
+    }
+    else {
         buf[bufp++] = ch;
     }
 }
