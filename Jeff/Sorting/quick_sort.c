@@ -34,7 +34,7 @@ void quick_sort(int list[], int size){
 void quick_sort_loop(int list[], int low, int high) {
     int pivot = low;    // middle element
     int i = high;   // checking element
-    int j = high;   // bigger element
+    int j = high;   // the first element of all bigger elements
     if (low >= high) {
         return;
     }
