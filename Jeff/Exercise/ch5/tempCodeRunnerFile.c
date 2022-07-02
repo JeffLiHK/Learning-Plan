@@ -1,1 +1,0 @@
-char newS[sizeof(s)+sizeof(t)-1];
